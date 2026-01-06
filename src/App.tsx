@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Record, Config, Profile, ImportConfig, CalcMode } from './types';
 import { SERVER_URLS, STORAGE_KEY, RULES_KEY, DEFAULT_PROFILES, parseDateString, normalizeDate, calculateWeekStats, pad } from './utils';
 import * as XLSX from 'xlsx';
-import { LayoutDashboard, Server, FilePlus, Edit, Settings, Database, ChartPie, Calculator, Receipt, BrainCircuit, CalendarRange, SlidersHorizontal, Scale, ChevronDown, ChevronUp } from 'lucide-react';
+import { LayoutDashboard, Server, FilePlus, Edit, Settings, Database, PieChart, Calculator, Receipt, BrainCircuit, CalendarRange, SlidersHorizontal, Scale, ChevronDown, ChevronUp } from 'lucide-react';
 
 import DataGrid from './components/DataGrid';
 import ChartsTab from './components/ChartsTab';
@@ -269,7 +269,7 @@ const App: React.FC = () => {
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-1 flex overflow-x-auto no-scrollbar">
                         <button onClick={() => setActiveTab('data')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'data' ? 'bg-blue-50 text-blue-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}><Database className="w-4 h-4" /> داده‌ها</button>
                         <button onClick={() => setActiveTab('charts')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'charts' ? 'bg-blue-50 text-blue-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}><LayoutDashboard className="w-4 h-4" /> نمودار</button>
-                        <button onClick={() => setActiveTab('distribution')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'distribution' ? 'bg-blue-50 text-blue-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}><ChartPie className="w-4 h-4" /> پراکندگی</button>
+                        <button onClick={() => setActiveTab('distribution')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'distribution' ? 'bg-blue-50 text-blue-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}><PieChart className="w-4 h-4" /> پراکندگی</button>
                         <button onClick={() => setActiveTab('advanced')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'advanced' ? 'bg-blue-50 text-blue-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}><Calculator className="w-4 h-4" /> پیشرفته</button>
                         <button onClick={() => setActiveTab('financial')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'financial' ? 'bg-blue-50 text-blue-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}><Receipt className="w-4 h-4" /> مالی</button>
                         <button onClick={() => setActiveTab('ai')} className={`flex-1 min-w-[100px] px-4 py-3 text-sm font-bold rounded-lg transition flex items-center justify-center gap-2 ${activeTab === 'ai' ? 'bg-indigo-50 text-indigo-700 shadow-sm' : 'text-indigo-400 hover:bg-indigo-50'}`}><BrainCircuit className="w-4 h-4" /> هوشمند</button>
