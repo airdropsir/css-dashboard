@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Profile, Config, ImportConfig, WeekStats, Record } from '../types';
 import { RULES_KEY, DEFAULT_PROFILES, formatRuleRange, TIME_SLOTS } from '../utils';
-import { X, ChevronLeft, ChevronRight, List, RefreshCw, CloudDownload, Info } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, List, RefreshCw, Download, Info } from 'lucide-react';
 
 export const CalculationDetailModal: React.FC<{ isOpen: boolean, onClose: () => void, details: any }> = ({ isOpen, onClose, details }) => {
     if (!isOpen || !details) return null;
@@ -327,7 +327,7 @@ export const ManualDownloadModal: React.FC<{ isOpen: boolean, onClose: () => voi
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
             <div className="bg-white rounded-xl p-6 max-w-md w-full shadow-2xl text-center">
-                <div className="mx-auto w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4"><CloudDownload /></div>
+                <div className="mx-auto w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4"><Download /></div>
                 <h3 className="font-bold text-lg mb-2 text-red-600">خطا در ارتباط خودکار</h3>
                 <p className="text-sm text-slate-600 mb-6 leading-relaxed">مرورگر به دلایل امنیتی اجازه دانلود خودکار فایل از سرور لوکال را نمی‌دهد. لطفاً فایل‌ها را دستی دانلود و سپس آپلود کنید.</p>
                 <div className="space-y-3">
