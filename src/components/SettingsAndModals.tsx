@@ -3,6 +3,7 @@ import { Profile, Config, ImportConfig, WeekStats, Record } from '../types';
 import { RULES_KEY, DEFAULT_PROFILES, formatRuleRange, TIME_SLOTS } from '../utils';
 import { X, ChevronLeft, ChevronRight, List, RefreshCw, Download, Info } from 'lucide-react';
 
+// --- Calculation Detail Modal ---
 export const CalculationDetailModal: React.FC<{ isOpen: boolean, onClose: () => void, details: any }> = ({ isOpen, onClose, details }) => {
     if (!isOpen || !details) return null;
     const { rawPoints, aggregatedValue, weightUsed, formulaDescription, weightDescription } = details;
@@ -51,6 +52,7 @@ export const CalculationDetailModal: React.FC<{ isOpen: boolean, onClose: () => 
     );
 }
 
+// --- Rules Sidebar ---
 export const RulesPanel: React.FC<{ profiles: Profile[], isOpen: boolean, toggle: () => void }> = ({ profiles, isOpen, toggle }) => {
     const fixedRules = profiles.find(p => p.id === 'ccs_fixed')?.rules || [];
     const customRules = profiles.find(p => p.id === 'ccs_custom')?.rules || [];
@@ -91,6 +93,7 @@ export const RulesPanel: React.FC<{ profiles: Profile[], isOpen: boolean, toggle
     );
 };
 
+// --- Import Config Modal ---
 export const ImportConfigModal: React.FC<{ config: ImportConfig, onSave: (c: ImportConfig) => void, isOpen: boolean, onClose: () => void }> = ({ config, onSave, isOpen, onClose }) => {
     const [localConfig, setLocalConfig] = useState(config);
     useEffect(() => { if (isOpen) setLocalConfig(config); }, [isOpen, config]);
@@ -131,6 +134,7 @@ export const ImportConfigModal: React.FC<{ config: ImportConfig, onSave: (c: Imp
     );
 };
 
+// --- Rule Config Modal ---
 export const RuleConfigModal: React.FC<{ profiles: Profile[], setProfiles: (p: Profile[]) => void, isOpen: boolean, onClose: () => void }> = ({ profiles, setProfiles, isOpen, onClose }) => {
     const [activeTab, setActiveTab] = useState<'fixed' | 'custom'>('fixed');
     if (!isOpen) return null;
@@ -198,6 +202,7 @@ export const RuleConfigModal: React.FC<{ profiles: Profile[], setProfiles: (p: P
     );
 };
 
+// --- Week Details Modal ---
 interface WeekDetailsModalProps {
     week: WeekStats & { name?: string; label?: string; records?: Record[] } | null;
     isOpen: boolean;
